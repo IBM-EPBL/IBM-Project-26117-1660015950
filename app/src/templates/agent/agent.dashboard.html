@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Agent Dashboard{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+        
+    </style>
+{% endblock %}
+{% block content %}
+   <div class="mb-3 p-2">
+    <h1>AGENT DASHBOARD</h1>
+   </div>
+   <div>
+   <div>
+    <div class="m-3 p-2">
+      <h3>Assigned complaints : </h3>
+    </div>
+       {% if  assigned_complaints%}
+            <div class="row p-5">
+              {% for complaint in assigned_complaints %}
+              <div class="col-md-2 mb-3 card m-2 p-2">
+                <div class="mb-3">
+                    {% if complaint.status=='OPENED' %}
+                    <span class="me-3 badge rounded-pill bg-success">{{complaint.status}}</span>
+                    {% endif %}
+                    {% if complaint.status=='ASSIGNED' %}
+                    <span class="me-3 badge rounded-pill bg-warning">{{complaint.status}}</span>
+                    {% endif %}
+                    {% if complaint.status=='RESOLVED' %}
+                    <span class="me-3 badge rounded-pill bg-danger">{{complaint.status}}</span>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title : </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="{{complaint.title}}"
+                    disabled
+                  />
+                </div>
+            
+                <div class="mb-3">
+                  <label for="title" class="form-label">Category : </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="{{complaint.category}}"
+                    disabled
+                  />
+                </div>
+            
+                <div class="mb-3">
+                  <label for="" class="form-label">Description</label>
+                  <textarea class="form-control" name="" id="" rows="3" disabled>
+            {{complaint.description}}</textarea
+                  >
+                </div>
+                <div class="mb-3">created at : {{complaint.created_at.strftime('%d/%m/%Y , %H:%M:%S %p')}}</div>
+                <a
+                  id=""
+                  class="btn btn-success"
+                  href="/complaint/{{complaint.id}}/resolve"
+                  role="button"
+                  >Resolve</a
+                >
+              </div>
+              {% endfor %}
+            </div>
+       {% endif %}
+   </div>
+  
+{% endblock %}
+
