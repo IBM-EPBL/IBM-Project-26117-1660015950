@@ -1,5 +1,5 @@
 
-appsecrets.py
+**/appsecrets.py
 **/DigiCertGlobalRootCA.crt
 **/venv/
 app/
