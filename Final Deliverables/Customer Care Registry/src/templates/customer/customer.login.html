@@ -3,12 +3,13 @@
 {% block head %}
     {{ super() }}
     <style>
-        #login-form{
-            margin-inline: 35rem;
-        }
+       
     </style>
 {% endblock %}
 {% block content %}
+<div class="d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 mt-5">
+        <div class="card container-card mb-3 p-5" style="">
     <form id="login-form" class="" action="" method="post" novalidate>
         <h1>Customer LogIn</h1>
         {{ form.csrf_token }}
@@ -52,5 +53,11 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <div>
+        Don't have an account ? <span><a class="" href="{{url_for('customer_signup')}}">Signup</a>.</span>
+    </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 

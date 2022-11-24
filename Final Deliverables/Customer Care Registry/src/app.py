@@ -16,7 +16,7 @@ import appsecrets
 
 
 def create_tables(conn):
-    create_stmts = [CREATE_CUSTOMERS_SQL]
+    create_stmts = [CREATE_CUSTOMERS_SQL,CREATE_ADMINS_SQL,CREATE_AGENTS_SQL,CREATE_COMPLAINTS_SQL,CREATE_COMPLAINT_STATUS_ASSIGN]
     for create_stmt in create_stmts:
         ibm_db.exec_immediate(conn,create_stmt)
 

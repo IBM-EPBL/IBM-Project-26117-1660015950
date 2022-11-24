@@ -2,12 +2,16 @@
 block head %} {{ super() }}
 <style></style>
 {% endblock %} {% block content %}
-<h1>CUSTOMER DASHBOARD</h1>
 <br />
-<div class="p-3">
-    <h3>My Complaints</h3>
-    <br>
-    <a href="/complaint/create" type="button" class="btn btn-primary">Create Complaint</a>
+<div class="mb-3 p-5 d-flex justify-content-center">
+  <div class="badge bg-light shadow-lg text-dark p-3 ">
+    <h1><strong>My Complaints</strong></h1>
+  </div>
+</div>
+<div class="ms-3 d-flex">
+  <div class="ms-3 d-flex p-3 rounded-pill bg-light justify-content-center">
+      <a href="/complaint/create" type="button" class="btn btn-info shadow-lg border-dark">Create Complaint</a>
+  </div>
 </div>
 <div class="p-3">
     <hr>
@@ -16,7 +20,7 @@ block head %} {{ super() }}
 
 <div class="row p-5">
   {% for complaint in complaints %}
-  <div class="col-md-2 mb-3 card m-2 p-2">
+  <div class="col-md-2 mb-3 card m-2 p-4">
     <div class="mb-3">
         {% if complaint.status=='OPENED' %}
         <span class="me-3 badge rounded-pill bg-success">{{complaint.status}}</span>

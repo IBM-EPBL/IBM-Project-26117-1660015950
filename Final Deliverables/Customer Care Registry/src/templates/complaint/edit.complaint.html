@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Create Complaint{% endblock %}
+{% block title %}Edit Complaint{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
-        #create-form{
-            margin-inline: 35rem;
-        }
+      
     </style>
 {% endblock %}
 {% block content %}
-
+<div class="d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 mt-5">
+        <div class="card container-card mb-3 p-5" style="">
     <form id="create-form" class="" action="" method="post" novalidate>
-        <h1>Create Complaint</h1>
+        <h1>Edit Complaint</h1>
         {{ form.csrf_token }}
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -88,5 +88,9 @@
 
        
     </form>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
 

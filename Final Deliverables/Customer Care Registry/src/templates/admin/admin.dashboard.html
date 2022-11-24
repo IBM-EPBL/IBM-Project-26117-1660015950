@@ -7,17 +7,19 @@
     </style>
 {% endblock %}
 {% block content %}
-   <h1>ADMIN DASHBOARD</h1>
-
    <div>
+    <div class="mb-3 p-5 d-flex justify-content-center">
+      <div class="badge bg-light shadow-lg text-dark p-3 ">
+        <h1><strong>Admin Dashboard</strong></h1>
+      </div>
+    </div>
     <br>
-        <h3>Unassigned complaints : </h3>
-        <div class="p-3">
-            <hr>
-        </div>
+    <div class="mb-5 ms-5 col-sm-2 shadow p-3 rounded-pill badge bg-success text-light border border-dark">
+      <h3 class="">Unassigned Complaints</h3>
+    </div>
         <div class="row p-5">
           {% for complaint in unassigned_complaints %}
-          <div class="col-md-2 mb-3 card m-2 p-2">
+          <div class="col-md-2 mb-3 card m-2 p-4">
             <div class="mb-3">
                 {% if complaint.status=='OPENED' %}
                 <span class="me-3 badge rounded-pill bg-success">{{complaint.status}}</span>
@@ -66,19 +68,22 @@
           </div>
           {% endfor %}
         </div>
-        <div class="p-3">
-            <hr>
-        </div>
-
-
+       
+        
 
         <div class="p-3">
             <hr>
         </div>
-        <div class="row p-5">
-        <h3 class="mb-3">Assigned Complaints</h3>
+        
+        
+        
+        
+        <div class="mb-5 ms-5 col-sm-2 shadow p-3 rounded-pill badge bg-warning text-dark border border-dark">
+          <h3 class="">Unassigned Complaints</h3>
+        </div>
+            <div class="row p-5">
           {% for complaint in assigned_complaints %}
-          <div class="col-md-2 mb-3 card m-2 p-2">
+          <div class="col-md-2 mb-3 card m-2 p-4">
             <div class="mb-3">
                 {% if complaint.status=='OPENED' %}
                 <span class="me-3 badge rounded-pill bg-success">{{complaint.status}}</span>
@@ -127,20 +132,18 @@
           </div>
           {% endfor %}
         </div>
+        
         <div class="p-3">
             <hr>
         </div>
-
-
-
-
-        <div class="p-3">
-            <hr>
-        </div>
+        
+        
+        <div class="mb-5 ms-5 col-sm-2 shadow p-3 rounded-pill badge bg-danger text-light border border-dark">
+          <h3 class="">Resolved Complaints</h3>
+        </div>    
         <div class="row p-5">
-            <h3 class="mb-3">Resolved Complaints</h3>
           {% for complaint in resolved_complaints %}
-          <div class="col-md-2 mb-3 card m-2 p-2">
+          <div class="col-md-2 mb-3 card m-2 p-4">
             <div class="mb-3">
                 {% if complaint.status=='OPENED' %}
                 <span class="me-3 badge rounded-pill bg-success">{{complaint.status}}</span>

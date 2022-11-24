@@ -3,13 +3,13 @@
 {% block head %}
     {{ super() }}
     <style>
-        #container{
-            margin-inline: 35rem;
-        }
+       
     </style>
 {% endblock %}
 {% block content %}
-<div id="container">
+<div class="d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 mt-5">
+        <div class="card container-card mb-3 p-5" style="">
     <form id="resolve-form" class="" action="" method="post" novalidate>
         <h1>Resolve Complaint</h1>
         {{ form.csrf_token }}
@@ -72,6 +72,8 @@
 
        
     </form>
+</div>
+    </div>
 </div>
 {% endblock %}
 

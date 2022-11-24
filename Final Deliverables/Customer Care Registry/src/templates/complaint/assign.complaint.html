@@ -3,66 +3,68 @@
 {% block head %}
     {{ super() }}
     <style>
-        #assign-form{
-            margin-inline: 35rem;
-        }
+
     </style>
 {% endblock %}
 {% block content %}
 
-    <form id="assign-form" class="" action="" method="post" novalidate>
-        <h1>Assign Agent</h1>
-        {{ form.csrf_token }}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul class=flashes>
-                {% for category, message in messages %}
-                <li class="alert alert-{{ category }}">{{ message }}</li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-
-        {% if complaint%}
-
-        <div class="mb-3">
-            <label for="title" class="form-label">Title : </label>
-            <input type="text" class="form-control" value="{{complaint.title}}" disabled>
-        </div>
-
-        <div class="mb-3">
-            <label for="title" class="form-label">Category : </label>
-            <input type="text" class="form-control" value="{{complaint.category}}" disabled >
-        </div>
-
-      <div class="mb-3">
-        <label for="" class="form-label">Description</label>
-        <textarea class="form-control" name="" id="" rows="3" disabled>{{complaint.description}}</textarea>
-      </div>
-       
-        <div class="mb-3">
-            <label for="agent" class="form-label">{{ form.agent.label }}</label>
-            {{ form.agent(class_="form-select",id_="agent") }}
-            <div class="text-danger">
-                <div class="text-danger">
-                    {% if form.agent.errors %}
-                        <ul class="errors">
-                        {% for error in form.agent.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                        </ul>
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 mt-5">
+            <div class="card container-card mb-3 p-5" style="">
+                <form id="assign-form" class="" action="" method="post" novalidate>
+                    <h1>Assign Agent</h1>
+                    {{ form.csrf_token }}
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul class="flashes">
+                            {% for category, message in messages %}
+                            <li class="alert alert-{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+            
+                    {% if complaint%}
+            
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title : </label>
+                        <input type="text" class="form-control" value="{{complaint.title}}" disabled>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Category : </label>
+                        <input type="text" class="form-control" value="{{complaint.category}}" disabled >
+                    </div>
+            
+                  <div class="mb-3">
+                    <label for="" class="form-label">Description</label>
+                    <textarea class="form-control" name="" id="" rows="3" disabled>{{complaint.description}}</textarea>
+                  </div>
+                   
+                    <div class="mb-3">
+                        <label for="agent" class="form-label">{{ form.agent.label }}</label>
+                        {{ form.agent(class_="form-select",id_="agent") }}
+                        <div class="text-danger">
+                            <div class="text-danger">
+                                {% if form.agent.errors %}
+                                    <ul class="errors">
+                                    {% for error in form.agent.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+            
+            
+            
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            
                     {% endif %}
-                </div>
+                </form>
             </div>
         </div>
-
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-        {% endif %}
-
-       
-    </form>
+    </div>
 {% endblock %}
 
